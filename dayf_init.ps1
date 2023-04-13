@@ -1,6 +1,6 @@
 $mft = 'C:\$MFT'
 $work_path = "C:\MFT"
-$out_name = $env:COMPUTERNAME + "_day1.csv"
+$out_name = $env:COMPUTERNAME + ".csv"
 
 Invoke-WebRequest -Uri https://github.com/bokgueni/share/raw/main/MFT.zip -OutFile MFT.zip
 
