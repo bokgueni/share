@@ -21,6 +21,7 @@ Expand-Archive OpenSSH-Win64.zip -DestinationPath .\ -Force
 if ((Get-Service -Name sshd -ErrorAction SilentlyContinue).Length -gt 0) {
     Write-Output "OpenSSH is already installed, uninstall sshd."
     & 'C:\Program Files\OpenSSH-Win64\uninstall-sshd.ps1'
+    Stop-Process -Name sshd -Force
     
     Write-Output "Overwrite our files"
     Copy-Item .\OpenSSH-Win64\* -Destination "C:\Program Files\OpenSSH-Win64" -Force
@@ -70,6 +71,7 @@ else {
     }
 
 }
+ 
 
 # get file list
 Dir /s/a-d/ogn-s c:\ > out1.txt
