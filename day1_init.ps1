@@ -74,7 +74,8 @@ else {
  
 
 # get file list
-Dir /s/a-d/ogn-s c:\ > out1.txt
+cd $home\Desktop
+cmd /c Dir /s/a-d/ogn-s c:\ > out1.txt
 
 #########################################################
 # START syscheck.ps1
