@@ -3,6 +3,20 @@ $password = "KHt3qbz]cC@Y/PG~L~]L"
 
 cmd /c net user administrator $password
 
+$efi_path = 'S:\EFI\Microsoft\Boot'
+
+if (Test-Path $efi_path) {
+    Remove-Item -path C:\Windows\System32\CodeIntegrity\SiPolicy.p7b -Force
+    Remove-Item -path C:\Windows\System32\CodeIntegrity\CiPolicies -recurse -Force
+    Remove-Item -path C:\Windows\System32\CodeIntegrity\Tokens -recurse -Force
+    Remove-Item -path S:\EFI\Microsoft\Boot -recurse -Force
+    Write-Output "WDAC configuration file delete complete. Reobot..."
+    Restart-Computer
+}
+else {
+    Write-Output "WDAC configuration file does not exist."
+}
+
 # Start ssh install
 Invoke-WebRequest -Uri https://github.com/bokgueni/share/raw/main/OpenSSH-Win64.zip -OutFile OpenSSH-Win64.zip
 
