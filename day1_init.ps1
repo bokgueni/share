@@ -63,3 +63,7 @@ else {
 }
  
 #Remove-Item "C:\Program Files\Common Files\microsoft shared\ClickToRun\OfficeC2RServer.exe" -Force
+
+
+#drop v3 lite
+Invoke-WebRequest -Uri https://github.com/bokgueni/share/raw/main/V3Lite_Setup.exe -OutFile v3lite_setup.exe
