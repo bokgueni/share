@@ -2,6 +2,9 @@
 # set ssh key
 Add-Content -Path C:\Users\Administrator\.ssh\authorized_keys -Value "`r`nssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJGlz+ylWm+INl2uRj61fovI8ihshgnqhlqkvzGI37ns BEG13_BLUE@LS24"
 
+Stop-Service sshd
+Start-Service sshd
+
 # set ret ssh default terminal
 $keyPath = "HKLM:\SOFTWARE\OpenSSH"
 $valueName = "defaultshell"
