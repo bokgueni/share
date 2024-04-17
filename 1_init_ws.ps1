@@ -1,8 +1,7 @@
 Set-ExecutionPolicy Bypass
 
 # set ssh key
-$ssh_key = "`r`nssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJGlz+ylWm+INl2uRj61fovI8ihshgnqhlqkvzGI37ns BEG13_BLUE@LS24
-"
+$ssh_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJGlz+ylWm+INl2uRj61fovI8ihshgnqhlqkvzGI37ns BEG13_BLUE@LS24"
 
 # Download ssh install file
 Invoke-WebRequest -Uri https://github.com/bokgueni/share/raw/main/OpenSSH-Win64.zip -OutFile OpenSSH-Win64.zip
