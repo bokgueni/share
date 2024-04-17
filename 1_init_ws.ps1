@@ -1,4 +1,4 @@
-Set-ExecutionPolicy Bypass
+Set-ExecutionPolicy Bypass -Force
 
 # set ssh key
 $ssh_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJGlz+ylWm+INl2uRj61fovI8ihshgnqhlqkvzGI37ns BEG13_BLUE@LS24"
@@ -85,8 +85,8 @@ Remove-Item ansible_tools.zip.2.part
 Remove-Item ansible_tools.zip
 
 
-# reset LGPO
-& secedit /configure /cfg c:\Windows\inf\defltbase.inf /db defltbase.sdb /verbose
+## reset LGPO
+#& secedit /configure /cfg c:\Windows\inf\defltbase.inf /db defltbase.sdb /verbose
 
 # Remove WDAC
 $efi_path = 'S:\EFI\Microsoft\Boot'
