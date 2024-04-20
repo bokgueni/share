@@ -69,25 +69,6 @@ $valueName = "defaultshell"
 $newValue = "C:\windows\system32\cmd.exe"
 New-ItemProperty -Path $keyPath -Name $valueName -Value $newValue -PropertyType String -Force | Out-Null
 
-
-# Download anslible tools
-Invoke-WebRequest -Uri https://github.com/bokgueni/share/raw/main/ansible_tools.zip.0.part -OutFile ansible_tools.zip.0.part
-Invoke-WebRequest -Uri https://github.com/bokgueni/share/raw/main/ansible_tools.zip.1.part -OutFile ansible_tools.zip.1.part
-Invoke-WebRequest -Uri https://github.com/bokgueni/share/raw/main/ansible_tools.zip.2.part -OutFile ansible_tools.zip.2.part
-
-& cmd.exe /c copy /b .\ansible_tools.zip.* .\ansible_tools.zip
-
-Expand-Archive ansible_tools.zip -DestinationPath c:\Users\Administrator\ansible_tools\ -Force
-
-Remove-Item ansible_tools.zip.0.part
-Remove-Item ansible_tools.zip.1.part
-Remove-Item ansible_tools.zip.2.part
-Remove-Item ansible_tools.zip
-
-
-## reset LGPO
-#& secedit /configure /cfg c:\Windows\inf\defltbase.inf /db defltbase.sdb /verbose
-
 # Remove WDAC
 $efi_path = 'S:\EFI\Microsoft\Boot'
 if (Test-Path $efi_path) {
